@@ -1,0 +1,21 @@
+package com_stst_file;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+// 학생의 정보를 화면에 출력
+
+public class StudentTestObjeckInputStream {
+
+	public static void main(String[] args) {
+		try {
+			ObjectInputStream ois = 
+					new ObjectInputStream(new FileInputStream("C:\\data\\student.dat"));
+		} catch (Exception e) {
+			System.out.println("예외발생 : " + e.getMessage());
+		}
+	}
+
+}

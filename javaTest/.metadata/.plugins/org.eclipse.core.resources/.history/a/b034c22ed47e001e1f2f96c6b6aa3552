@@ -1,0 +1,27 @@
+package exam;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class SortTest {
+	public static void main(String[] args) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+
+ 		try {
+			BufferedReader bf = 
+					new BufferedReader(new FileReader("C:\\data\\num.txt"));
+			String num;
+			while ((num = bf.readLine()) != null) {
+				arr.add(Integer.parseInt(num));
+			}
+			
+			Arrays.sort(arr);
+			
+		} catch (Exception e) {
+			System.out.println("파일 오류 : " + e.getMessage());
+		}
+		
+	}
+}

@@ -1,0 +1,137 @@
+package com.sist.student;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+import com.sist.dao.BookDao;
+import com.sist.vo.bookVo;
+
+class BookFrame extends JFrame {
+	JTable table;
+	JTextField jtf_no;
+	JTextField jtf_name;
+	JTextField jtf_price;
+	JTextField jtf_publisher;
+	
+	Vector<String> col;
+	Vector<Vector<String>> rows;
+	
+	ArrayList<bookVo> list;
+	public void loadList() {
+		BookDao dao = new BookDao();
+		list = dao.listBook();
+		
+		for (bookVo vo : list) {
+			Vector<String> v = new Vector<String>();
+			v.add(vo.getNo() + "");
+			v.add(vo.getBookName());
+			v.add(vo.getPrice() + "");
+			v.add(vo.getPublisher());
+			
+			rows.add(v);
+		}
+		
+		table.getUI();
+	}
+	
+	public BookFrame() {
+		col = new Vector<String>();
+		col.add("도서번호");
+		col.add("도서명");
+		col.add("가격");
+		col.add("저자");
+		
+		jtf_no = new JTextField(10);
+		jtf_name = new JTextField(10);
+		jtf_price = new JTextField(10);
+		jtf_publisher = new JTextField(10);
+		
+		rows = new Vector<Vector<String>>();
+		
+		JPanel p_south = new JPanel();
+		JPanel p_input = new JPanel();
+		p_input.setLayout(new GridLayout(4, 2));
+		p_input.add(new JLabel("도서번호"));
+		p_input.add(jtf_no);
+		p_input.add(new JLabel("도서명"));
+		p_input.add(jtf_name);
+		p_input.add(new JLabel("가격"));
+		p_input.add(jtf_price);
+		p_input.add(new JLabel("저자"));
+		p_input.add(jtf_publisher);
+		
+		JPanel p_btn = new JPanel();
+		JButton btn_new = new JButton("새로고침");
+		JButton btn_add = new JButton("추가");
+		JButton btn_update = new JButton("수정");
+		JButton btn_delete = new JButton("삭제");
+		p_btn.add(btn_new);
+		p_btn.add(btn_add);
+		p_btn.add(btn_update);
+		p_btn.add(btn_delete);
+		
+		p_south.setLayout(new BorderLayout());
+		p_south.add(p_input, BorderLayout.CENTER);
+		p_south.add(p_btn, BorderLayout.SOUTH);
+		
+		table = new JTable(rows, col);
+		JScrollPane jsp = new JScrollPane(table);
+		setLayout(new BorderLayout());
+		add(jsp, BorderLayout.CENTER);
+		add(p_south, BorderLayout.SOUTH);
+		
+		btn_new.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				jtf_no.setText("");
+				jtf_name.setText("");
+				jtf_price.setText("");
+				jtf_publisher.setText("");
+			}
+		});
+		
+		btn_add.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {		
+				bookVo vo = new bookVo(
+						Integer.parseInt(jtf_no.getText()),
+						jtf_name.getText(),
+						Integer.parseInt(jtf_price.getText()),
+						jtf_publisher.getText());
+				
+				BookDao dao = new BookDao();
+				int re = dao.insertBook(vo);
+				
+				if (re == 1) {
+					JOptionPane.showMessageDialog(null, "추가 성공");
+				} else {
+					JOptionPane.showMessageDialog(null, "추가 실패");
+				}
+			}
+		});
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+public class BookTest {
+
+	public static void main(String[] args) {
+		new BookFrame();
+	}
+}

@@ -1,0 +1,24 @@
+package exam08;
+
+import java.io.InputStream;
+import java.net.Socket;
+
+public class TCPClient {
+
+	public static void main(String[] args) {
+		try {
+			// 3. 클라이언트가 접속
+			// Socket객체를 생성하여 서버에 통신을 요청
+			Socket socket = new Socket("192.168.0.59", 9000);
+			
+			// 5. 소캣을 통하여 스트림을 생성한다
+			InputStream is = socket.getInputStream();
+			
+			// 6. 데이터를 주고 받는다
+			// 서버가 보내오는 데이터를 받아서 화면에 출력한다
+		} catch (Exception e) {
+			System.out.println("예외 발생 : " + e.getMessage());
+		}
+	}
+
+}

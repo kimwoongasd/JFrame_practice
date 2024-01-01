@@ -1,0 +1,2 @@
+JComboBox(Vector<E> items)
+- Vector<E>는 ArrayList와 같다

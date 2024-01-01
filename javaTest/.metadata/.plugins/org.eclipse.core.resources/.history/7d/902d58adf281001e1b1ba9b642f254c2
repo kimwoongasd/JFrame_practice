@@ -1,0 +1,34 @@
+package com.sist.student;
+
+import java.awt.BorderLayout;
+import java.util.Vector;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+class BookFrame extends JFrame {
+	JTable table;
+	Vector<String> col;
+	Vector<Vector<String>> rows;
+	
+	public BookFrame() {
+		col = new Vector<String>();
+		rows = new Vector<Vector<String>>();
+		
+		table = new JTable(rows, col);
+		JScrollPane jsp = new JScrollPane(table);
+		setLayout(new BorderLayout());
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+public class BookTest {
+
+	public static void main(String[] args) {
+	
+	}
+}

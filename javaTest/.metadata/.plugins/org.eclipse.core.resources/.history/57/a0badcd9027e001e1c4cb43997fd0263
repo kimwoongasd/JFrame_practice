@@ -1,0 +1,16 @@
+package multi.frame;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class MainFrame extends JFrame {
+	JLabel jlb;
+	public MainFrame(String name) {
+		setTitle("메인화면");
+		
+		jlb.setText(name);
+		add(jlb)
+		setSize(400, 300);
+		setVisible(true);
+	}
+}

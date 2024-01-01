@@ -1,0 +1,44 @@
+package com_stst_file;
+
+import java.awt.BorderLayout;
+import java.io.File;
+
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+
+class MyFrame extends JFrame {
+	JList<String> list;
+	JTextArea jta;
+	
+	public MyFrame() {
+		String[] arr = {"사과", "금", "수박", "딸기"};		
+		list = new JList<String>(arr);
+		jta = new JTextArea(10, 80);
+		
+		File dir = new File("C:\\javaStudy\\0925");
+		String[] file = dir.list();
+		list = new JList<String>(file);
+		
+		JScrollPane jsp_list = new JScrollPane(list);
+		JScrollPane jsp_jta = new JScrollPane(jta);
+		
+		String name = list.getSelectedValue();
+		
+		add(jsp_list, BorderLayout.WEST);
+		add(jsp_jta, BorderLayout.CENTER);
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+}
+
+public class FileListFrame  {
+	public static void main(String[] args) {
+		new MyFrame();
+	}
+}

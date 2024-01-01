@@ -1,0 +1,23 @@
+package com.sist.dao;
+
+import com.sist.vo.bookVo;
+
+public class BookDao {
+	protected String oracle_db = "oracle.jdbc.driver.OracleDriver";
+	protected String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	protected String userName = "c##som";
+	protected String passWord = "1234";
+	
+	
+	public int insertBook(bookVo b) {
+		int re = -1;
+		
+		try {
+			
+		} catch (Exception e) {
+			System.out.println("추가 예외 발생 " + e.getMessage());
+		}
+		
+		return re;
+	}
+}

@@ -1,0 +1,43 @@
+package exam;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class SortTest3 {
+	public static void main(String[] args) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+ 		try {
+			BufferedReader bf = 
+					new BufferedReader(new FileReader("C:\\data\\num.txt"));
+			String num;
+			while ((num = bf.readLine()) != null) {
+				arr.add(Integer.parseInt(num));
+			}
+			System.out.println(arr);
+			System.out.println("시작");
+			bf.close();
+			
+			System.out.println("정렬");
+			Collections.sort(arr);
+			
+			
+			System.out.println("파일쓰기 시작");
+			FileWriter fw = new FileWriter("C:\\data\\sortNum3.txt", true);
+			for (int n : arr) {
+				fw.write(n + "");
+				fw.write("\n");
+				System.out.println(n);
+			}
+			fw.close();
+			
+			
+		} catch (Exception e) {
+			System.out.println("파일 오류 : " + e.getMessage());
+		}
+		
+	}
+}

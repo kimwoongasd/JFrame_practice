@@ -1,0 +1,16 @@
+package exam07;
+
+import java.net.DatagramSocket;
+
+public class UDPReceiver {
+
+	public static void main(String[] args) {
+		try {
+			// 1.DatagramSocket를 생성한다
+			DatagramSocket socket = new DatagramSocket();
+		} catch (Exception e) {
+			System.out.println("예외 발생 " + e.getMessage());
+		}
+	}
+
+}

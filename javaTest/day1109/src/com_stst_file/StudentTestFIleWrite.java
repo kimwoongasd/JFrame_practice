@@ -1,0 +1,40 @@
+package com_stst_file;
+
+import java.io.FileWriter;
+import java.util.Scanner;
+
+public class StudentTestFIleWrite {
+
+	public static void main(String[] args) {
+		String name;
+		int kor, eng, math, tot, avg;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("이름을 엽력하시오");
+		name = sc.next();
+		System.out.println("국어 점수 : ");
+		kor = sc.nextInt();
+		System.out.println("영어 점수 : ");
+		eng = sc.nextInt();
+		System.out.println("수학 점수 : ");
+		math = sc.nextInt();
+		
+		tot = kor + eng + math;
+		avg = tot / 3;
+		
+		String data = name + " " + kor + " " + eng + " " + math
+				+ " " + tot + " " + avg;
+		try {
+			// FileWriter : 파일을 생성한다
+			// 기본적으로 새로만들고 있다면 덮어쓰고
+			// FileWriter("C:\\data\\student.txt", true)
+			// true라면 같은이름에 데이터 이어쓰기
+			FileWriter fr = new FileWriter("C:\\data\\student.txt", true);
+			fr.write(data);
+			fr.write("\n");
+			fr.close();
+		} catch (Exception e) {
+			System.out.println("에외 발생 " + e.getMessage());
+		}
+	}
+
+}

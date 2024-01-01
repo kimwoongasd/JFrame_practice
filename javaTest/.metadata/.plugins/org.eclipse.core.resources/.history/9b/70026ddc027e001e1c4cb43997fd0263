@@ -1,0 +1,23 @@
+package multi.frame;
+
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class MainFrame extends JFrame {
+	JLabel jlb;
+	public MainFrame(String name) {
+		setTitle("메인화면");
+		
+		setLayout(new FlowLayout());
+		jlb.setText(name);
+		add(jlb)
+		setSize(400, 300);
+		setVisible(true);
+	}
+}

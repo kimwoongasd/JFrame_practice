@@ -1,0 +1,189 @@
+산술연산자
++, -, *, /, %
+
+비교 연산자
+<, >, >=, <=, ==, !=
+
+논리 연산자
+&&, ||
+
+& : 모두 1이면 1
+| : 둘 중 하나라도 1이면 1
+^ : 둘 모두 달라야 1
+0	1	&	|	^
+--------------------------------------------
+0	0	0	0	0
+0	1	0	1	1
+1	0	0	1	1
+1	1	1	1	0
+
+비트 이동 연산자
+>> : 오른쪽으로 이동
+<< : 왼쪽으로 이동 
+
+증감 연산자
+x++	먼저 해당 연산을 수행한 후 피연산자의 값을 1증가 시킴
+++x	먼저 피연산자의 값을 1증가 시킨 후 해당 연산을 수행함
+x--	먼저 해당 연산을 수행한 후 피연산자의 값을 1감소 시킴
+--x	먼저 피연산자의 값을 1감소 시킨 후 해당 연산을 수행함
+
+대입 연산자
+-=, +=, *=, /=, %=
+
+삼항연산자
+(조건식) ? (true 값) : (false값)
+
+조건문
+if문
+if (조건식) {
+ 실행문
+} else {
+ 실행문
+}
+
+if else if문
+if (조건식) {
+ 실행문
+} else if (조건문) {
+ 실행문
+}
+else {
+ 실행문
+}
+
+임시변수
+ex) a = 1; b = 2;
+tem = a;
+a = b;
+b = tem;
+임시변수를 이용하여 서로 값을 교환
+
+비트차 연산자를 이용하면 두개의 변수만으로도 서로 바꿀수있다
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+
+
+
+--------------------------------------------------------------------------------------------
+
+public class Quiz01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int kor, math, eng, total;
+		String name, res;
+		double avg;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("이름을 입력하시오");
+		name = sc.next();
+		System.out.println("국어 점수를 입력하시오");
+		kor = sc.nextInt();
+		System.out.println("수학 점수를 입력하시오");
+		math = sc.nextInt();
+		System.out.println("영어 점수를 입력하시오");
+		eng = sc.nextInt();
+		
+		total = kor + math + eng;
+		avg = total / 3;
+		
+		System.out.println("총점 : " + total);
+		System.out.println("평균 : " + avg);
+		
+		if (total >= 60) {
+			res = "합격";
+		} else {
+			res = "과락";
+		}
+		
+		System.out.println("*** 성적처리 결과  ***");
+		System.out.println("-----------------------");
+		System.out.println("이름\t국어\t수학\t영어\t총점\t결과");
+		System.out.println(name+"\t"+kor+"\t"+math+"\t"+eng+"\t"+total+"\t"+res);
+		
+	}
+
+}
+
+--------------------------------------------------------------------------------------------
+
+public class Quiz02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n;
+		String res;
+		
+		System.out.println("0~9 사이 숫자를 입력하시오");
+		n = sc.nextInt();
+		
+		if (n == 0) {
+			res = "영";
+		} else if (n == 1) {
+			res = "일";
+		} else if (n == 2) {
+			res = "이";
+		} else if (n == 3) {
+			res = "삼";
+		} else if (n == 4) {
+			res = "사";
+		} else if (n == 5) {
+			res = "오";
+		} else if (n == 6) {
+			res = "육";
+		} else if (n == 7) {
+			res = "칠";
+		} else if (n == 8) {
+			res = "팔";
+		} else {
+			res = "구";
+		}
+		
+		System.out.println(res);
+	}
+
+}
+
+--------------------------------------------------------------------------------------------
+
+public class Quiz03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n, day;
+		String season;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("월을 입력하시오");
+		n = sc.nextInt();
+		
+		if (3 <= n && n <= 5) {
+			season = "봄";
+		} else if (6 <= n && n <= 8) {
+			season = "여름";
+		} else if (9 <= n && n <= 11) {
+			season = "가을";
+		} else {
+			season = "겨울";
+		}
+		
+		if (n == 2) {
+			day = 28;
+		} else if (n % 2 == 1) {
+			day = 31;
+		} else {
+			day = 30;
+		}
+		
+		System.out.printf("%d월은 %s이고 마지막일은 %d입니다.", n, season, day);
+		
+	}
+
+}
+
+
+
+

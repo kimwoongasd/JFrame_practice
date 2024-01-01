@@ -1,0 +1,20 @@
+package exam06;
+
+import java.io.InputStream;
+import java.net.URL;
+
+public class URLTest {
+
+	public static void main(String[] args) {
+		try {
+			// 사이트의 URL을 갖고 URL 객체를 생성
+			URL url = new URL("https://www.hanbit.co.kr/store/books/new_book_list.html");
+			
+			// 그 문서으 ㅣ내용을 내컴퓨터로 읽어 들이기 위하여 스트림 사용
+			InputStream is = url.openStream();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}

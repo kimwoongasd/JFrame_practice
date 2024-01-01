@@ -1,0 +1,22 @@
+package exam03;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class MyFrame extends JFrame {
+	JButton btn;
+	ImageIcon img;
+	public MyFrame() {
+		btn = new JButton();
+	}
+}
+
+public class JButtonImageTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

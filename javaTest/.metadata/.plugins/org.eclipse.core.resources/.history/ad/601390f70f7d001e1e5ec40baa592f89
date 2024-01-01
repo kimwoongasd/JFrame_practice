@@ -1,0 +1,27 @@
+import java.awt.GridLayout;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+class MyFrame extends JFrame{
+	JComboBox<String> jcb;
+	JLabel jlb;
+	public MyFrame() {
+		jcb = new JComboBox<String>;
+		jlb = new JLabel();
+		
+		setLayout(new GridLayout(2, 1));
+		add(jcb);
+		add(jlb);
+	}
+}
+
+public class JComboBoxImageTest {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

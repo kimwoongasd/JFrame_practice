@@ -1,0 +1,49 @@
+이벤트를 모아둔 클래스 java.awt.event
+
+
+ActionListener
+- 인터페이스, 버튼이 눌러졌을떄 기능추가
+- 추상이기 때문에 오버라이딩 해야한다
+
+.getActionCommand();  : 눌러진 버튼의 글자를 보여줌
+getText() : 텍스트필드에 적힌 글자 가져오기
+setText : 텍스트필드에 값 설정
+
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); : 창을 닫을 떄 프로그램 종료
+
+
+btnAdd.addActionListener(this);
+- this 자리에는 버튼이 눌러졌을 때 인터페이스 ActionListener를 구현한 객체가 와야한다
+- 이 버튼을 눌렀을 떄 실행할 이벤트 객체
+
+
+이름없는 클래스 객체 생성
+btnAdd.addActionListener(new ActionListener() {
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("Add가 눌러짐");
+	}
+});
+btnClear.addActionListener(new ActionListener() {
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("Clear가 눌러짐");
+	}
+});
+
+- 이벤트 처리를 할 떄에 화면을 구성하고 있는 프레임 자신이 이벤트 처리 담당자가 될 수도 있지만
+- 보통은 이름없는 inner클래스로 처리하는 것이 일반적이다
+
+inner클래스
+- 아웃클래스의 맴버라고 생각해서 아웃클래스의 맴버에 접근가능
+
+
+레이아웃 매니저
+- 화면구성 요소들을 배치하는 방식
+
+1. FlowLayout
+- 화면 구성요소들을 물흐르듯이 왼쪽에서 오른쪽으로 위에서 아래로 차례대로 배치하는 방식
+2. GridLayout
+- 화면을 행, 열로 분할하여 컴포넌트들을 차례로 배치하는 방식
+3. BorderLayout
+- 화면을 동 서 남 북 가운데로 분할하여 컴포터는들을 배치하는 방식

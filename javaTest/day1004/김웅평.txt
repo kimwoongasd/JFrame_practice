@@ -1,0 +1,143 @@
+switch(변수) {
+case 값: // 변수와 값이 일치하면 실행
+실행문
+break;
+
+defaulf: // 변수와 값이 일치하지 않을 떄
+실행문
+break;
+}
+
+for 반복문
+
+for(초기 변수값 ; 조건식 ; 증감식 ) {
+	조건식이 true일 때까지 for문 반복
+	증감식을 통해서 변수값을 증가시키거나 감소시킨다
+}
+
+
+
+- n을 입력받아 1~n까지의 짝수의합, 짝수 개수, 홀수의 합 홀수의 개수 각각 구하여 출력
+public class Quiz2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n, evenTotal = 0, oddTotal = 0, evenCnt = 0, oddCnt = 0;
+		
+		System.out.println("n의 값을 입력하시오");
+		n = sc.nextInt();
+		
+		for (int i = 1; i <= n; i++) {
+			if (i % 2 == 0) {
+				evenCnt += 1;
+				evenTotal += i;
+			} else {
+				oddCnt += 1;
+				oddTotal += i;
+			}
+		}
+		
+		System.out.printf("짝수의 합 : %d  짝수의 개수 : %d\n", evenTotal, evenCnt);
+		System.out.printf("홀수의 합 : %d  홀수의 개수 : %d", oddTotal, oddCnt);
+		
+	}
+
+}
+
+
+- n을 입력받아 1~n까지의 6의 배수를 모두 출력
+public class Quiz3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n;
+		
+		System.out.println("n을 입력하시오");
+		n = sc.nextInt();
+		
+		for (int i = 1; i <= n; i++) {
+			if (i % 6 == 0) {
+				System.out.println(i);
+			}
+		}
+		
+	}
+
+}
+
+-n을 입력받아 n의 약수를 모두 출력
+
+public class Quiz4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n;
+		
+		System.out.println("n을 입력하시오");
+		n = sc.nextInt();
+		
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				System.out.println(i);
+			}
+		}
+		
+	}
+
+}
+
+- n이 소수인지 판별 
+
+public class Quiz5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n, cnt = 0;
+		boolean res = true;
+		
+		System.out.println("n을 입력하시오");
+		n = sc.nextInt();
+		
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				cnt += 1;
+				if (cnt >= 3) {
+					res = false;
+					break;
+				}
+			}
+		}
+		
+		if (res) {
+			System.out.println(n + "은 소수 입니다");
+		} else {	
+			System.out.println(n + "은 소수가 아닙니다");
+		}		
+	}
+}
+
+- n을 입력받아 n의 약수의 개수
+
+public class Quiz6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int n, cnt = 0;
+		
+		System.out.println("n을 입력하시오");
+		n = sc.nextInt();
+		
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				cnt += 1;
+			}
+		}
+		
+		System.out.println(n + "의 약수의 개수는 " + cnt + "개");
+	}
+}

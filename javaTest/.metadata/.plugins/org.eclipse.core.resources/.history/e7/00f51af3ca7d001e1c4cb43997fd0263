@@ -1,0 +1,13 @@
+package exam01;
+
+public class TCPClient {
+
+	public static void main(String[] args) {
+		try {
+			
+		} catch (Exception e) {
+			System.out.println("예외 발생 : " + e.getMessage());
+		}
+	}
+
+}

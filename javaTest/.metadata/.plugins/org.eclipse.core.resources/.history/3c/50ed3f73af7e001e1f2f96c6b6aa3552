@@ -1,0 +1,90 @@
+package com_stst_file;
+
+import java.awt.BorderLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+
+class MyFrame extends JFrame {
+	JList<String> list;
+	JTextArea jta;
+	
+	public MyFrame() {
+		// 폴더를 가져온다
+		File dir = new File("C:\\javaStudy\\0925");		
+		// 폴더안에 파일들은 리스트화 하여 담는다
+		String[] file = dir.list();
+		list = new JList<String>(file);
+		jta = new JTextArea(10, 80);
+
+		JScrollPane jsp_list = new JScrollPane(list);
+		JScrollPane jsp_jta = new JScrollPane(jta);
+		
+		
+		
+		list.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				String name = list.getSelectedValue();
+				
+				
+				try {
+					FileReader fr = new FileReader("C:\\javaStudy\\0925\\" + name);
+					String str = "";
+					int ch;
+					while ((ch = fr.read()) != -1) {
+						str += (char)ch;
+					}
+					jta.setText(str);
+					fr.close();
+					
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
+		
+		add(jsp_list, BorderLayout.WEST);
+		add(jsp_jta, BorderLayout.CENTER);
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+}
+
+public class FileListFrame  {
+	public static void main(String[] args) {
+		new MyFrame();
+	}
+}

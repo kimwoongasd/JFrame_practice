@@ -1,0 +1,82 @@
+package com_stst_file;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+class StudentObjectFrame extends JFrame {
+	String[] str = {"이름", "국어", "영어", "수학", "총점", "평균"};
+	JLabel[] jlb = new JLabel[str.length];
+	JTextField[] jtf = new JTextField[str.length];
+	JPanel[] p = new JPanel[str.length];
+	FileReader file;
+	ArrayList<Student> list; // 파일에서 읽어온 데이터를 저장
+	int idx = 0; // 화면에 가져올 데이터의 idx번호
+	
+	
+	
+	public StudentObjectFrame() {
+		list = new ArrayList<Student>();
+		
+		
+		setLayout(new GridLayout(7, 2));
+		for (int i = 0; i < jlb.length; i++) {
+			jlb[i] = new JLabel(str[i]);
+			jtf[i] = new JTextField(10);
+			p[i] = new JPanel();
+			p[i].add(jlb[i]);
+			p[i].add(jtf[i]);
+			add(p[i]);
+		}
+		
+		
+		JPanel p_btn = new JPanel();
+		JButton btn_new = new JButton("새 학생");
+		JButton btn_save = new JButton("저장");
+		p_btn.add(btn_new);
+		p_btn.add(btn_save);
+		add(p_btn);
+
+		// 새 학생을 저장하기 위한 필드 초기화
+		btn_new.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (int i = 0; i < jtf.length; i++) {
+					jtf[i].setText("");
+				}
+			}
+		});
+		
+		btn_save.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+// 문자열 파일을 한줄씩 읽어 들인다
+// BufferReader 이용
+
+public class StudentTestObjectOutputGUI {
+	public static void main(String[] args) {
+		new StudentObjectFrame();
+		
+	}
+}

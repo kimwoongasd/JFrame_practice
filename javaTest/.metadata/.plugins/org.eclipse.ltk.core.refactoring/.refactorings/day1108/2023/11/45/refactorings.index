@@ -1,0 +1,15 @@
+1699407004852	Copy package
+1699407035881	Rename type 'TCPServer'
+1699407054484	Rename type 'TCPClient'
+1699409514741	Copy package
+1699409534421	Rename type 'TCPClientEcho'
+1699413892522	Rename type 'TCPServerEcho'
+1699419765328	Copy package
+1699419851115	Rename type 'TCPServerEchoGUI'
+1699419934069	Rename type 'TCPClientEchoGUI'
+1699422095052	Copy package
+1699422189126	Rename type 'TCPClientEchoGUIMultiCast'
+1699422199728	Rename type 'TCPServerEchoMultiCast'
+1699425497911	Rename package 'exam07'
+1699425545325	Rename package 'multi.Frame'
+1699426932736	Copy package

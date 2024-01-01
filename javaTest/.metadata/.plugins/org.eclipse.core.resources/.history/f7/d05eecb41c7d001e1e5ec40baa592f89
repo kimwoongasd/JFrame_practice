@@ -1,0 +1,26 @@
+package exam07;
+
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+class MyFrame {
+	
+	JButton bnt;
+	JTextField jtx;
+	JTextArea jta;
+	
+	public MyFrame() {
+		
+	}
+}
+
+
+public class URLTestGUI {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

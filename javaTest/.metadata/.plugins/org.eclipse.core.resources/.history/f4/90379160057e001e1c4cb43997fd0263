@@ -1,0 +1,23 @@
+package Chat.name;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class LoginFrame extends JFrame {
+	JTextField jtf;
+	
+	public LoginFrame() {
+		jtf = new JTextField();
+		JButton btn = new JButton("로그인");
+		
+		setLayout(new FlowLayout());
+		add(jtf);
+		add(btn);
+		
+		setSize(200, 100);
+		setVisible(true);
+	}
+}

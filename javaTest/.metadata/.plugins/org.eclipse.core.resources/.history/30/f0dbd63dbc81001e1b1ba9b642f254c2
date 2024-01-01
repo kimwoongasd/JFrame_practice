@@ -1,0 +1,11 @@
+package com.sist.vo;
+
+public class StudentVo {
+	private String name;
+	private String kor;
+	private String eng;
+	private String math;
+	private String tot;
+	private String avg;
+	
+}

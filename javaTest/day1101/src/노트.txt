@@ -1,0 +1,22 @@
+JFileChooser
+- 파일을 선탁하기 위한 다이얼로그를 위한 클래스
+
+showSaveDialog(Component parent)
+- Component parent에 null이 와도 된다
+- "파일 저장" 파일 선택 대화상자를 표시합니다.
+- 저장 : 0, 취소 : 1
+
+showOpenDialog(Component parent)
+- Component parent에 null이 와도 된다
+- "파일 열기" 파일 선택기 대화 상자를 표시합니다.
+- 열기 : 0, 취소 : 1
+
+File
+- 파일과 디렉토리의 정보를 제공하는 클래스
+
+
+getSelectedFile()
+- 선택한 파일을 반환합니다.
+
+
+

@@ -1,0 +1,23 @@
+package exam07;
+
+import java.net.DatagramSocket;
+
+public class UDPSender {
+
+	public static void main(String[] args) {
+		try {
+			// 프로그램 실행시 전달되는 첫밴째 다이터를 ip 변수에 저장
+			String ip = args[0];
+			// 프로그램 실행시 전달되는 두번째 데이터를 정수로 변환하여 arg에 약함
+			int port = Integer.parseInt(args[1]);
+			// 문자 변수열 저장
+			String msg = args[2];
+			
+			// DatagramSocket를 생성한다
+			DatagramSocket socket = new DatagramSocket();
+		} catch (Exception e) {
+			System.out.println("예외 발생 " + e.getMessage());
+		}
+	}
+
+}

@@ -1,0 +1,15 @@
+package exam07;
+
+public class UDPSender {
+
+	public static void main(String[] args) {
+		try {
+			String ip = args[0];
+			int port = Integer.parseInt(arg[1]);
+			String msg = args[2];
+		} catch (Exception e) {
+			System.out.println("예외 발생 " + e.getMessage());
+		}
+	}
+
+}

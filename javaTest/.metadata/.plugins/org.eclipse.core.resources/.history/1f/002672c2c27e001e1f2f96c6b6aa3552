@@ -1,0 +1,11 @@
+package com_stst_file;
+
+// 학생의 정보를 화면에 출력
+
+public class StudentTestObjeckInputStream {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

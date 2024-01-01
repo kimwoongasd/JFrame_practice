@@ -1,0 +1,59 @@
+자바에서는 클래스의 다중상속이 불가능하다.
+다중상속 효과를 기대할 목적으로 인터페이스 사용
+
+인터페이스
+- 클래스가 자료형인것 처럼 인터페이스도 자료형이다
+- 완전 추상의 개념
+- 추상메소드와 상수만 가질수 있다
+- 메소드에는 public abstract 키워드가 생략되어있다.
+- 상수에는 public final이 생략
+- 인터페이스 구현할 때 implements 사용
+
+class abstract A {
+	public abstract void pro();
+}
+
+class B extends A {
+	public void pro() {}
+}
+===============================
+interface A {
+	public abstract void pro();
+}
+
+class B implements A {
+	public void pro() {};
+}
+
+
+
+exercise
+1-1 == false, 복수의 인터페이스 구현 가능
+1-2 == false 아무것도 적지 않으면 같은 패키지 안에 있는 클래스들만 접근 허용
+1-3 == true
+
+2
+public void AudioSystem extends Sound-System implements MP3latabe, TurnRablePlayable {}
+
+
+3 public abtract void move() // 위치 관계없음
+
+4. abstract class Bird {
+	public abstract void sound();
+}
+
+class Dove extends Bird {
+	public abstract void sound(
+		sout coo coo
+	);
+}
+
+5. 상수의 초기값이 없다
+	body가 있다
+	extends -> implements
+	
+6. 2
+
+7. obj = a, obj = b ---> 자식이 부모를 참조할 수 없다
+
+

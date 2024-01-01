@@ -1,0 +1,28 @@
+package exam03;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class MyFrame extends JFrame {
+	JButton btn;
+	ImageIcon img = new ImageIcon("apple.gif");
+	public MyFrame() {
+		btn = new JButton(img);
+		
+		add(btn);
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+public class JButtonImageTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

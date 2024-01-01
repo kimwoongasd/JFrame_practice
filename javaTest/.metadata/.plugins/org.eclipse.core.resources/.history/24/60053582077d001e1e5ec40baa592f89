@@ -1,0 +1,47 @@
+package exam02;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+class MyFrame extends JFrame {
+	JComboBox<String> jcb;
+	JPanel p;
+	public MyFrame() {
+		jcb = new JComboBox<String>();
+		p = new JPanel();
+		jcb.addItem("red");
+		jcb.addItem("blue");
+		jcb.addItem("yellow");
+		jcb.addItem("black");
+		
+		jcb.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String str = (String)jcb.getSelectedItem();
+			}
+		});
+		
+		setLayout(new BorderLayout());
+		add(jcb, BorderLayout.NORTH);
+		add(p, BorderLayout.CENTER);
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+public class JComboBOxTest {
+
+	public static void main(String[] args) {
+		new MyFrame()
+	}
+
+}

@@ -1,0 +1,58 @@
+package exam;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+
+public class SortTest2 {
+	public static void main(String[] args) {
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		int[] sort;
+ 		try {
+ 			System.out.println("시작");
+			BufferedReader bf = 
+					new BufferedReader(new FileReader("C:\\data\\num.txt"));
+			String num;
+			while ((num = bf.readLine()) != null) {
+				arr.add(Integer.parseInt(num));
+			}
+			
+			bf.close();
+			
+			sort = new int[arr.size()];
+			for (int i = 0; i < sort.length; i++) {
+				sort[i] = arr.get(i);
+			}
+			
+			System.out.println("정렬중");
+			for (int i = 0; i < sort.length - 1; i++) {
+				int min_idx = i;
+				for (int j = i + 1; j < sort.length; j++) {
+					if (sort[min_idx] > sort[j]) {
+						min_idx = j;
+					}
+				}
+				int tem = sort[min_idx];
+				sort[min_idx] = sort[i];
+				sort[i] = tem;
+				
+			}
+			
+			System.out.println("파일쓰기 시작");
+			FileWriter fw = new FileWriter("C:\\data\\sortNum2.txt", true);
+			for (int n : sort) {
+				fw.write(n + "");
+				fw.write("\n");
+				System.out.println(n);
+			}
+			fw.close();
+			
+			
+		} catch (Exception e) {
+			System.out.println("파일 오류 : " + e.getMessage());
+		}
+		
+	}
+}

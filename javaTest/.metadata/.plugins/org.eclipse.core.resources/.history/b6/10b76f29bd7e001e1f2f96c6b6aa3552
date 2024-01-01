@@ -1,0 +1,31 @@
+package com_stst_file;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+// 문자열 파일을 한줄씩 읽어 들인다
+// BufferReader 이용
+
+public class StudentTestFIleReader {
+
+	public static void main(String[] args) {
+		FileReader file;
+		try {
+			file = new FileReader("C:\\data\\student.txt");
+			BufferedReader bf = new BufferedReader(file);
+			
+			String str = "";
+			while ((str = bf.readLine()) != null) {
+				System.out.println(str);
+			}
+			bf.close();
+			
+		} catch (Exception e) {
+			System.out.println("예외 발생 : " + e.getMessage());
+		}
+		
+	}
+
+}

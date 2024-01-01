@@ -1,0 +1,51 @@
+package com.sist.student;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.util.Vector;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+class BookFrame extends JFrame {
+	JTable table;
+	JTextField jtf_no;
+	JTextField jtf_name;
+	JTextField jtf_price;
+	JTextField jtf_publisher;
+	
+	Vector<String> col;
+	Vector<Vector<String>> rows;
+	
+	public BookFrame() {
+		col = new Vector<String>();
+		col.add("도서번호");
+		col.add("책 이름");
+		col.add("가격");
+		col.add("저자");
+		
+		rows = new Vector<Vector<String>>();
+		
+		JPanel p_input = new JPanel();
+		p_input.setLayout(new GridLayout(5, 2));
+		
+		table = new JTable(rows, col);
+		JScrollPane jsp = new JScrollPane(table);
+		setLayout(new BorderLayout());
+		add(jsp, BorderLayout.CENTER);
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+public class BookTest {
+
+	public static void main(String[] args) {
+	
+	}
+}

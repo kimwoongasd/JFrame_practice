@@ -1,0 +1,12 @@
+package com.sist.dao;
+
+import com.sist.vo.StudentVo;
+
+public class studentDao {
+	// 데이터베이스 명령이 성공한지 안한지
+	public int insertStudent(StudentVo s) {
+		int re = -1;
+		
+		return re;
+	}
+}

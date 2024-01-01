@@ -1,0 +1,139 @@
+package com.sist.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.sist.vo.StudentVo;
+
+public class studentDao {
+	protected String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	protected String id = "c##som";
+	protected String pass = "1234";
+	
+	public int deleteStudent(String name) {
+		int re = 1;
+		String sql = "delete student where name='" + name + "'";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection conn = DriverManager.getConnection(url, id, pass);
+			
+			Statement stmt = conn.createStatement();
+			
+			re = stmt.executeUpdate(sql);
+			
+			stmt.close();
+			conn.close();
+			
+		} catch (Exception e) {
+			System.out.println("삭제 예외 발생 " + e.getMessage());
+		}
+		
+		return re;
+	}
+	
+	public int updateStudent(StudentVo s) {
+		int re = -1;
+		String sql = 
+				"update student set kor = "+ s.getKor() 
+				+", eng = "+ s.getEng() 
+				+", math = "+ s.getMath() 
+				+", tot = "+ s.getTot()
+				+", avg = "+ s.getAvg()
+				+" where name = '"+ s.getName() +"'";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection conn = DriverManager.getConnection(url, id, pass);
+			
+			Statement stmt = conn.createStatement();
+			
+			re = stmt.executeUpdate(sql);
+			
+			stmt.close();
+			conn.close();
+			
+		} catch (Exception e) {
+			System.out.println("업데이트 예외 발생 : " + e.getMessage());
+		}
+		
+		return re;
+	}
+	
+	public ArrayList<StudentVo> listStudent() {
+		ArrayList<StudentVo> list = new ArrayList<StudentVo>();
+		String sql = "select * from student";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection conn = DriverManager.getConnection(url, id, pass);
+			
+			Statement stmt = conn.createStatement();
+			
+			ResultSet res = stmt.executeQuery(sql);
+			
+			while (res.next()) {
+				// 시작 인덱스는 1부터 시작
+				String name = res.getString(1);
+				int kor = res.getInt(2);
+				int eng = res.getInt(3);
+				int math = res.getInt(4);
+				int tot = res.getInt(5);
+				int avg = res.getInt(6);
+				
+				list.add(new StudentVo(name, kor, eng, math, tot, avg));
+			}
+			
+			res.close();
+			stmt.close();
+			conn.close();
+			
+		} catch (Exception e) {
+			System.out.println("학생 리스트 예외 발생 : " + e.getMessage());
+		}
+		
+		return list;
+	}
+	
+	// 데이터베이스 명령이 성공한지 안한지
+	public int insertStudent(StudentVo s) {
+		int re = -1;
+		String name = s.getName();
+		int kor = s.getKor();
+		int eng = s.getEng();
+		int math = s.getMath();
+		int tot = s.getTot();
+		int avg = s.getAvg();
+		
+		String sql = "insert into student values('" + name+
+				"', "+ kor + ", " + eng + ", " +
+				math + ", " + tot + ", " + avg + ")";
+		try {
+			//1. JDBC 드라이버를 메모리로 로드한다.
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			// DB서버에 연결
+			Connection conn = 
+					DriverManager.getConnection(url, id, pass);
+			
+			// 데이터베이스 명령문을 실행할 수 있게 객체 생성
+			Statement stmt = conn.createStatement();
+			
+			// 데이터베이스 명령문 실행
+			re = stmt.executeUpdate(sql);
+			
+			stmt.close();
+			conn.close();
+			
+		} catch (Exception e) {
+			System.out.println("예외 발생 " + e.getMessage());
+		}
+		
+		return re;
+	}
+}

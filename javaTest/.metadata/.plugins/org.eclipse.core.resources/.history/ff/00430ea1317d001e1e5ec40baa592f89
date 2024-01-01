@@ -1,0 +1,22 @@
+package exam08;
+
+import java.net.ServerSocket;
+
+public class TCPServer {
+
+	public static void main(String[] args) {
+		try {
+			// 1. ServerSocket을 생성한다
+			ServerSocket server = new ServerSocket(9000);
+			
+			// 2. 무한 대기상태로 클라이언트의 접속을 기다린다
+			while (true) {
+				// 4. 통신이 오면 수락한다
+				server.accept();
+			}
+		} catch (Exception e) {
+			System.out.println("예외 발생 : " + e.getMessage());
+		}
+	}
+
+}

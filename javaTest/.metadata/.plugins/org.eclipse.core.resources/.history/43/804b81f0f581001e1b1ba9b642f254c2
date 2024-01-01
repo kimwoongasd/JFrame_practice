@@ -1,0 +1,52 @@
+package com.sist.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.sist.vo.bookVo;
+
+public class BookDao {
+	public static final String oracle_db = "oracle.jdbc.driver.OracleDriver";
+	public static final String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	public static final String userName = "c##som";
+	public static final String passWord = "1234";
+	
+	public ArrayList<bookVo> listBook() {
+		ArrayList<bookVo> list = new ArrayList<bookVo>();
+		String sql = "select * from Book";
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return list;
+	}
+	
+	public int insertBook(bookVo b) {
+		int re = -1;
+		String sql = "insert into Book values(" + b.getNo() + 
+				", '" + b.getBookName() + 
+				"', " + b.getPrice() + 
+				", '"+ b.getPublisher() +"')";
+		
+		try {
+			Class.forName(oracle_db);
+			
+			Connection conn = DriverManager.getConnection(url, userName, passWord);
+			
+			Statement stmt = conn.createStatement();
+			
+			re = stmt.executeUpdate(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			System.out.println("추가 예외 발생 " + e.getMessage());
+		}
+		
+		return re;
+	}
+}

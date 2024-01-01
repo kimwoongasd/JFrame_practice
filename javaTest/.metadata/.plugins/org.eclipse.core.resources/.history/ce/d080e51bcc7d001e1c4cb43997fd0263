@@ -1,0 +1,20 @@
+package exam01;
+
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class TCPServer {
+
+	public static void main(String[] args) {
+		try {
+			ServerSocket server = new ServerSocket(9002);
+			
+			while (true) {
+				Socket socket = server.accept();
+			}
+		} catch (Exception e) {
+			System.out.println("예외 발생 : " + e.getMessage());
+		}
+	}
+
+}

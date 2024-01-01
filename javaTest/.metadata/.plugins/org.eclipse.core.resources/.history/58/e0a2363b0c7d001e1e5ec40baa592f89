@@ -1,0 +1,33 @@
+package exam03;
+
+import java.awt.FlowLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+class MyFrame extends JFrame {
+	JButton btn;
+	ImageIcon img = new ImageIcon("apple.gif");
+	public MyFrame() {
+		btn = new JButton(img);
+
+		JButton btn2 = new JButton(new ImageIcon("peach.gif"));
+		System.out.println(btn2);
+		setLayout(new FlowLayout());
+		add(btn);
+		add(btn2);
+		
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+
+public class JButtonImageTest {
+
+	public static void main(String[] args) {
+		new MyFrame();
+	}
+
+}

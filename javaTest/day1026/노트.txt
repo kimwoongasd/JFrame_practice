@@ -1,0 +1,22 @@
+켈렉션 프레임워크
+1. 	Set : 데이터의 중복 허용 x
+	- HashSet
+		* 순서가 없다
+	-LinkedHashSet
+		* 순서가 있다
+	-TreeSet
+		* 정렬을 해준다
+2.  List : 데이터 중복허용
+	- ArrayList
+		* 중간에 데이터를 삭제할 경우 그곳을 비워둘 수 없으니 그 뒤에 있는 데이터가 앞으로
+		  자리이동 한다
+		* 삭제가 빈번한 경우 부적합
+	- LinkedList
+		* 데이터가 삭제되어도 그 뒤 데이터가 자리이동이 없다
+		* 삭제가 빈번한 경우 ArraList보다 효율적이다
+3.	Map
+- key, value 형태를 가지고 있다
+- key로 접근
+	- HashMap
+	- LinkedHashMap
+	- TreeMap

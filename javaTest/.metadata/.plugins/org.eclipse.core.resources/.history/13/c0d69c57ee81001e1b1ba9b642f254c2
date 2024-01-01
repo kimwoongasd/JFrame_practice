@@ -1,0 +1,5 @@
+package com.sist.dao;
+
+public class BookDao {
+	protected oracle_db = "oracle.jdbc.driver.OracleDriver";
+}
